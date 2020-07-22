@@ -5,7 +5,9 @@ const hbs = require('hbs');
 // console.log(path.join(__dirname, '../public')) 
 // path join to direct to the public file index.html
 
+
 const app = express();
+const port = process.env.PORT || 3000; //process is from Heroku and for local is logical or at 3000
 
 const viewsPath = path.join(__dirname,'../templates/views') // in case we decided to put the hbs files in the templates folder
 // app.set('views' , viewsPath) // setting up the viwes dir = viewsPath above
@@ -138,8 +140,8 @@ app.get('*',(req,res) =>{
 })
 
 // Now start up the server by listen() at aspecific port {localhost:3000} 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000') 
+app.listen(port, () => {
+    console.log('Server is up on port' + port) 
     // wont run on the website
     // just loging on terminal as an information output to make life easier    
 })
