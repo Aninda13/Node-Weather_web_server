@@ -14,7 +14,10 @@ const forecast =(long, lat, callback) =>{
             const curr_temp = body.current.temperature;
             const feels_like = body.current.feelslike;
             const weather_type = body.current.weather_descriptions[0];
-            const msg = weather_type + '. Its currently '+curr_temp+ ' degrees out and it feels like '+ feels_like+' degrees';
+            const humidity = body.current.humidity;
+            const precips = body.current.precip;
+            const msg = weather_type + '. Its currently '+curr_temp+ ' degrees out and it feels like '+ feels_like+' degrees' 
+            + '. The humidity is '+ humidity+'% with a precipation of '+ precips+ '%.';
             callback(undefined, msg)
         }
     })
